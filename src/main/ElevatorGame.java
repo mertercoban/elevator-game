@@ -1,11 +1,12 @@
 package main;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.stage.WindowEvent;
 import q4.Elevator;
 
 public class ElevatorGame extends Application {
@@ -17,6 +18,7 @@ public class ElevatorGame extends Application {
     private ElevatorPanel elevatorPanel;
     private GamePanel gamePanel;
     private ControlPanel controlPanel;
+    private Thread loopThread;
 
     private Elevator elevator;
     private int currentFloor;
@@ -43,11 +45,25 @@ public class ElevatorGame extends Application {
 
         stage.setTitle("Elevator Game!");
         stage.setScene(scene);
+        stage.setOnCloseRequest(event -> System.exit(0));
         stage.setResizable(false);
         stage.show();
 
-        gamePanel.paint(currentFloor);
-        elevatorPanel.paint(elevator);
+        startLoop();
+    }
+
+    private void startLoop() {
+        loopThread = new Thread(() -> {
+            while (true) {
+                repaint();
+                try {
+                    Thread.sleep(120L);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        loopThread.start();
     }
 
     public static void main(String[] args) {
@@ -64,6 +80,7 @@ public class ElevatorGame extends Application {
     }
 
     private void repaint() {
+        System.out.println("here");
         gamePanel.paint(currentFloor);
         elevatorPanel.paint(elevator);
     }
