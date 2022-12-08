@@ -15,6 +15,7 @@ public class ElevatorGame extends Application {
 
     private ElevatorPanel elevatorPanel;
     private GamePanel gamePanel;
+    private ControlPanel controlPanel;
 
     private int currentFloor;
 
@@ -23,42 +24,12 @@ public class ElevatorGame extends Application {
 
         gamePanel = new GamePanel(this);
         elevatorPanel = new ElevatorPanel(this);
+        controlPanel = new ControlPanel(this);
         HBox root = new HBox();
         VBox leftPane = new VBox();
-        VBox controls = new VBox();
-
-        controls.setPrefWidth(TILE_SIZE * 10);
-        controls.setPrefHeight(TILE_SIZE * 10);
-
-        Button upButton = new Button("UP");
-        Button downButton = new Button("DOWN");
-        downButton.setDisable(true);
-
-        upButton.setOnAction(actionEvent -> {
-            if (currentFloor < 3) {
-                currentFloor++;
-                gamePanel.paint(currentFloor);
-                downButton.setDisable(false);
-                if (currentFloor == 3)
-                    upButton.setDisable(true);
-            }
-        });
-
-        downButton.setOnAction(actionEvent -> {
-            if (currentFloor > 0) {
-                currentFloor--;
-                gamePanel.paint(currentFloor);
-                upButton.setDisable(false);
-                if (currentFloor == 0)
-                    downButton.setDisable(true);
-            }
-        });
-
-        controls.getChildren().add(upButton);
-        controls.getChildren().add(downButton);
 
         leftPane.setPrefWidth(WIDTH / 4.0);
-        leftPane.getChildren().add(controls);
+        leftPane.getChildren().add(controlPanel);
         leftPane.getChildren().add(elevatorPanel);
 
         root.getChildren().add(leftPane);
@@ -77,5 +48,19 @@ public class ElevatorGame extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public int getCurrentFloor() {
+        return currentFloor;
+    }
+
+    public void setCurrentFloor(int currentFloor) {
+        this.currentFloor = currentFloor;
+        repaint();
+    }
+
+    private void repaint() {
+        gamePanel.paint(currentFloor);
+        elevatorPanel.paint();
     }
 }
