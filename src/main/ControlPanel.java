@@ -83,6 +83,7 @@ public class ControlPanel extends GridPane {
             downButton.setText(text);
         }
 
+
     }
 
 }
