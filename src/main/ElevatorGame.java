@@ -80,7 +80,6 @@ public class ElevatorGame extends Application {
     }
 
     private void repaint() {
-        System.out.println("here");
         gamePanel.paint(currentFloor);
         elevatorPanel.paint(elevator);
     }

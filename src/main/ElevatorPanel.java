@@ -39,7 +39,6 @@ public class ElevatorPanel extends Canvas {
     }
 
     private void updateAnim() {
-        System.out.println(animTick);
         if (animFlag) {
             animTick++;
             if (animTick>=9) {
