@@ -1,5 +1,7 @@
 package main;
 
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
@@ -51,6 +53,35 @@ public class ControlPanel extends GridPane {
         downButton.setStyle("-fx-background-color: #cb701d; -fx-border-color: black; -fx-font-family: Harrington; " +
                 "-fx-font-size: 25px; -fx-border-width: 3px; -fx-border-radius: 7px; -fx-background-radius: 10px;" +
                 " -fx-translate-y: 90px; -fx-translate-x: 100px; -fx-padding:16px;-fx-max-height: 65px;-fx-min-width: 110px");
+
+    }
+
+    public class ButtonFXMLController {
+
+        public Button upButton = null;
+        private int upButtonClickCount = 0;
+        private int downButtonClickCount = 0;
+
+        @FXML
+        public void buttonClicked1(Event u) {
+            this.upButtonClickCount++;
+
+            String text = "Up Button clicked " + this.upButtonClickCount + " times";
+
+            System.out.println(text);
+
+            upButton.setText(text);
+        }
+
+        public void buttonClicked2(Event d) {
+            this.downButtonClickCount++;
+
+            String text = "Down Button clicked " + this.downButtonClickCount + " times";
+
+            System.out.println(text);
+
+            downButton.setText(text);
+        }
 
     }
 
