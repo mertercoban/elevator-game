@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f79ba9a6-5b95-4212-8cfe-8d8c3b392735" name="Changes" comment="added quiz 4 files">
+    <list default="true" id="f79ba9a6-5b95-4212-8cfe-8d8c3b392735" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ControlPanel.java" afterDir="false" />
     </list>
@@ -101,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670519619461</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=".">
+      <created>1670530083075</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670530083075</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,9 +127,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <MESSAGE value="." />
     <MESSAGE value="added ControlPanel.java" />
     <MESSAGE value="added quiz 4 files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added quiz 4 files" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>
