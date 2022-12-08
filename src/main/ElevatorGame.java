@@ -71,10 +71,12 @@ public class ElevatorGame extends Application {
     public void goUp() {
         currentFloor++;
         elevator.goToFloor(currentFloor);
+        repaint();
     }
 
     public void goDown() {
         currentFloor--;
         elevator.goToFloor(currentFloor);
+        repaint();
     }
 }
