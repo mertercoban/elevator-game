@@ -7,6 +7,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import q4.Elevator;
+
 public class ElevatorGame extends Application {
 
     public static final int TILE_SIZE = 32;
@@ -17,10 +19,13 @@ public class ElevatorGame extends Application {
     private GamePanel gamePanel;
     private ControlPanel controlPanel;
 
+    private Elevator elevator;
     private int currentFloor;
 
     @Override
     public void start(Stage stage) {
+
+        elevator  = new Elevator(8,0,4);
 
         gamePanel = new GamePanel(this);
         elevatorPanel = new ElevatorPanel(this);
