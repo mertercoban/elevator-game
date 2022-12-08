@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f79ba9a6-5b95-4212-8cfe-8d8c3b392735" name="Changes" comment="added ControlPanel.java">
-      <change afterPath="$PROJECT_DIR$/src/q4/Elevator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q4/ElevatorPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q4/FoodWallet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q4/MyStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q4/Person.java" afterDir="false" />
+    <list default="true" id="f79ba9a6-5b95-4212-8cfe-8d8c3b392735" name="Changes" comment="added quiz 4 files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ElevatorGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ElevatorGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ElevatorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ElevatorPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q4/Elevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q4/Elevator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670516514067</updated>
-      <workItem from="1670516515633" duration="3056000" />
+      <workItem from="1670516515633" duration="3708000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670516573753</created>
@@ -99,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670518549766</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added quiz 4 files">
+      <created>1670519619461</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670519619461</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +124,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="." />
     <MESSAGE value="added ControlPanel.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ControlPanel.java" />
+    <MESSAGE value="added quiz 4 files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added quiz 4 files" />
   </component>
 </project>

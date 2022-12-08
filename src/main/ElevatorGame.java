@@ -2,7 +2,6 @@ package main;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -48,7 +47,7 @@ public class ElevatorGame extends Application {
         stage.show();
 
         gamePanel.paint(currentFloor);
-        elevatorPanel.paint();
+        elevatorPanel.paint(elevator);
     }
 
     public static void main(String[] args) {
@@ -66,6 +65,16 @@ public class ElevatorGame extends Application {
 
     private void repaint() {
         gamePanel.paint(currentFloor);
-        elevatorPanel.paint();
+        elevatorPanel.paint(elevator);
+    }
+
+    public void goUp() {
+        currentFloor++;
+        elevator.goToFloor(currentFloor);
+    }
+
+    public void goDown() {
+        currentFloor--;
+        elevator.goToFloor(currentFloor);
     }
 }

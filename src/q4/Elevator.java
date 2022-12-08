@@ -134,6 +134,7 @@ public class Elevator {
      */
     @Override
     public String toString() {
-        return "Elevator is on floor: " + currentFloor + ", Number of people: " + people.getSize();
+        return "Elevator is on floor: " + currentFloor + "\nNumber of people: " + people.getSize() +
+                "\nTravelled " + travelMeter + " floors.";
     }
 }
