@@ -1,11 +1,11 @@
 package main;
 
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
+
 
 import static main.ElevatorGame.TILE_SIZE;
-
-public class ControlPanel extends VBox {
+public class ControlPanel extends GridPane {
 
     private ElevatorGame game;
 
@@ -26,7 +26,7 @@ public class ControlPanel extends VBox {
 
         upButton.setOnAction(actionEvent -> {
             if (game.getCurrentFloor() < 3) {
-                game.setCurrentFloor(game.getCurrentFloor() + 1);
+                game.goUp();
                 downButton.setDisable(false);
                 if (game.getCurrentFloor() == 3)
                     upButton.setDisable(true);
@@ -35,7 +35,7 @@ public class ControlPanel extends VBox {
 
         downButton.setOnAction(actionEvent -> {
             if (game.getCurrentFloor() > 0) {
-                game.setCurrentFloor(game.getCurrentFloor() - 1);
+                game.goDown();
                 upButton.setDisable(false);
                 if (game.getCurrentFloor() == 0)
                     downButton.setDisable(true);
@@ -44,5 +44,14 @@ public class ControlPanel extends VBox {
 
         getChildren().add(upButton);
         getChildren().add(downButton);
+
+        upButton.setStyle("-fx-background-color: #1fabab; -fx-border-color: black;-fx-font-family: Harrington; " +
+                "-fx-font-size: 25px; -fx-border-width: 3px; -fx-border-radius: 7px; -fx-background-radius: 10px; " +
+                "-fx-label-padding: 17px;-fx-translate-x: 100px;");
+        downButton.setStyle("-fx-background-color: #cb701d; -fx-border-color: black; -fx-font-family: Harrington; " +
+                "-fx-font-size: 25px; -fx-border-width: 3px; -fx-border-radius: 7px; -fx-background-radius: 10px;" +
+                " -fx-translate-y: 90px; -fx-translate-x: 100px; -fx-padding:16px");
+
     }
+
 }

@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f79ba9a6-5b95-4212-8cfe-8d8c3b392735" name="Changes" comment="added quiz 4 files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ElevatorGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ElevatorGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ElevatorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ElevatorPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/q4/Elevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q4/Elevator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ControlPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +29,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ElevatorGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.ElevatorGame" />
