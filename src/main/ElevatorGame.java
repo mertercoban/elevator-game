@@ -35,7 +35,7 @@ public class ElevatorGame extends Application {
         downButton.setDisable(true);
 
         upButton.setOnAction(actionEvent -> {
-            if (currentFloor<3) {
+            if (currentFloor < 3) {
                 currentFloor++;
                 gamePanel.paint(currentFloor);
                 downButton.setDisable(false);
@@ -45,7 +45,7 @@ public class ElevatorGame extends Application {
         });
 
         downButton.setOnAction(actionEvent -> {
-            if (currentFloor>0) {
+            if (currentFloor > 0) {
                 currentFloor--;
                 gamePanel.paint(currentFloor);
                 upButton.setDisable(false);
@@ -57,7 +57,7 @@ public class ElevatorGame extends Application {
         controls.getChildren().add(upButton);
         controls.getChildren().add(downButton);
 
-        leftPane.setPrefWidth(WIDTH/4.0);
+        leftPane.setPrefWidth(WIDTH / 4.0);
         leftPane.getChildren().add(controls);
         leftPane.getChildren().add(elevatorPanel);
 

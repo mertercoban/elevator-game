@@ -19,15 +19,15 @@ public class GamePanel extends Canvas {
     public GamePanel(ElevatorGame game) {
         this.game = game;
         setHeight(HEIGHT);
-        setWidth(WIDTH*3.0/4);
+        setWidth(WIDTH * 3.0 / 4);
         loadImages();
         paint(0);
     }
 
     public void paint(int currentFloor) {
-        if (gc==null)
+        if (gc == null)
             gc = this.getGraphicsContext2D();
-        gc.drawImage(floors[currentFloor],0,0, WIDTH*3.0/4, HEIGHT);
+        gc.drawImage(floors[currentFloor], 0, 0, WIDTH * 3.0 / 4, HEIGHT);
     }
 
     private void loadImages() {

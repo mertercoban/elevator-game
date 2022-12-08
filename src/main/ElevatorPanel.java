@@ -22,12 +22,12 @@ public class ElevatorPanel extends Canvas {
     }
 
     public void paint() {
-        if (gc==null)
+        if (gc == null)
             gc = this.getGraphicsContext2D();
-        gc.clearRect(0,0,320,320);
-        gc.drawImage(elev,0,0, 320, 320);
+        gc.clearRect(0, 0, 320, 320);
+        gc.drawImage(elev, 0, 0, 320, 320);
         gc.setFill(Color.BLUE);
-        gc.strokeText("Sample Text", 10,10,320);
+        gc.strokeText("Sample Text", 10, 10, 320);
     }
 
     private void loadImages() {
