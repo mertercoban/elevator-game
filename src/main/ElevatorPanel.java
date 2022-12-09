@@ -4,6 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import q4.Elevator;
 
 import java.io.FileInputStream;
@@ -33,9 +34,14 @@ public class ElevatorPanel extends Canvas {
             gc = this.getGraphicsContext2D();
         gc.clearRect(0, 0, 320, 320);
         gc.drawImage(elev, 0, 0, 320, 320);
-        gc.setFill(Color.BLUE);
-        gc.strokeText(elevator.toString(), 10, 10, 320);
-        gc.drawImage(personSprite, animIndex * 16, 0, 16, 32, 4.25 * TILE_SIZE, 4.5 * TILE_SIZE, 1.5 * TILE_SIZE, 3 * TILE_SIZE);
+        gc.strokeText(elevator.toString(), 10, 10, 160);
+        gc.strokeText("Number of people who\nused the elevator: " + elevator.getTotalUsers(), 170, 10, 160);
+        if (elevator.lastEntered() != null){
+            gc.drawImage(personSprite, animIndex * 16, 0, 16, 32, 4.25 * TILE_SIZE, 4.5 * TILE_SIZE, 1.5 * TILE_SIZE, 3 * TILE_SIZE);
+            gc.setStroke(Color.WHITE);
+            gc.strokeText("I will go to floor " + elevator.lastEntered().getTarget(),32*3.5,32*3,128);
+            gc.setStroke(Color.BLACK);
+        }
     }
 
     private void updateAnim() {

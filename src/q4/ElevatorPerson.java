@@ -17,6 +17,8 @@ public class ElevatorPerson {
     /** The person who takes the elevator */
     private Person person;
 
+    private boolean waiting = true;
+
     /**
      * Generates an ElevatorPerson object for the given person
      *
@@ -37,6 +39,14 @@ public class ElevatorPerson {
 
     public Person getPerson() {
         return person;
+    }
+
+    public int getInitialPosition() {
+        return initialPosition;
+    }
+
+    public boolean isWaiting() {
+        return waiting;
     }
 
     /**

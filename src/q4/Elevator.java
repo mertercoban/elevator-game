@@ -5,6 +5,8 @@ package q4;
  */
 public class Elevator {
 
+    private int totalUsers;
+
     /** Position of the elevator */
     private int currentFloor;
 
@@ -60,6 +62,7 @@ public class Elevator {
         if (!isFull()) {
             people.push(new ElevatorPerson(person, currentFloor, target));
             System.out.println(person.getName() + " is in.");
+            totalUsers++;
             return true;
         }
         return false;
@@ -127,6 +130,14 @@ public class Elevator {
      */
     public static int getTravelMeter() {
         return travelMeter;
+    }
+
+    public int getTotalUsers() {
+        return totalUsers;
+    }
+
+    public ElevatorPerson lastEntered() {
+        return !people.isEmpty() ? (ElevatorPerson) people.peek(): null;
     }
 
     /**
