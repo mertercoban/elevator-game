@@ -17,7 +17,7 @@ public class ElevatorPanel extends Canvas {
     private Image elev;
     private GraphicsContext gc;
     private Image personSprite;
-    private int animTick;
+    private int animIndex, animTick;
     private boolean animFlag = true;
 
     public ElevatorPanel(ElevatorGame elevatorGame) {
@@ -35,22 +35,27 @@ public class ElevatorPanel extends Canvas {
         gc.drawImage(elev, 0, 0, 320, 320);
         gc.setFill(Color.BLUE);
         gc.strokeText(elevator.toString(), 10, 10, 320);
-        gc.drawImage(personSprite,animTick*16,0,16,32,4.25*TILE_SIZE,4.5*TILE_SIZE,1.5*TILE_SIZE,3*TILE_SIZE);
+        gc.drawImage(personSprite, animIndex * 16, 0, 16, 32, 4.25 * TILE_SIZE, 4.5 * TILE_SIZE, 1.5 * TILE_SIZE, 3 * TILE_SIZE);
     }
 
     private void updateAnim() {
-        if (animFlag) {
-            animTick++;
-            if (animTick>=9) {
-                animTick=8;
-                animFlag = false;
+        animTick++;
+        if (animTick >= 15) {
+
+            if (animFlag) {
+                animIndex++;
+                if (animIndex >= 9) {
+                    animIndex = 8;
+                    animFlag = false;
+                }
+            } else {
+                animIndex--;
+                if (animIndex < 0) {
+                    animIndex = 0;
+                    animFlag = true;
+                }
             }
-        } else {
-            animTick--;
-            if (animTick<0){
-                animTick=0;
-                animFlag = true;
-            }
+            animTick = 0;
         }
     }
 

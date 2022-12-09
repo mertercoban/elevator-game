@@ -1,12 +1,10 @@
 package main;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import q4.Elevator;
 
 public class ElevatorGame extends Application {
@@ -22,11 +20,13 @@ public class ElevatorGame extends Application {
 
     private Elevator elevator;
     private int currentFloor;
+    private int targetFloor;
+    private boolean elevatorMoving;
 
     @Override
     public void start(Stage stage) {
 
-        elevator  = new Elevator(8,0,4);
+        elevator = new Elevator(8, 0, 4);
 
         gamePanel = new GamePanel(this);
         elevatorPanel = new ElevatorPanel(this);
@@ -57,7 +57,7 @@ public class ElevatorGame extends Application {
             while (true) {
                 repaint();
                 try {
-                    Thread.sleep(120L);
+                    Thread.sleep(10L);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -76,7 +76,6 @@ public class ElevatorGame extends Application {
 
     public void setCurrentFloor(int currentFloor) {
         this.currentFloor = currentFloor;
-        repaint();
     }
 
     private void repaint() {
@@ -85,14 +84,36 @@ public class ElevatorGame extends Application {
     }
 
     public void goUp() {
-        currentFloor++;
-        elevator.goToFloor(currentFloor);
-        repaint();
+        targetFloor = currentFloor + 1;
+        setElevatorMoving(true);
     }
 
     public void goDown() {
-        currentFloor--;
+        targetFloor = currentFloor - 1;
+    }
+
+    public void elevatorReachedTarget() {
+        if (controlPanel != null)
+            controlPanel.updateButtons();
+        if (currentFloor == targetFloor)
+            return;
+        currentFloor = targetFloor;
         elevator.goToFloor(currentFloor);
-        repaint();
+    }
+
+    public boolean isElevatorMoving() {
+        return elevatorMoving;
+    }
+
+    public void setElevatorMoving(boolean elevatorMoving) {
+        this.elevatorMoving = elevatorMoving;
+    }
+
+    public int getTargetFloor() {
+        return targetFloor;
+    }
+
+    public void setTargetFloor(int targetFloor) {
+        this.targetFloor = targetFloor;
     }
 }

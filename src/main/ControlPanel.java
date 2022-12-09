@@ -29,25 +29,19 @@ public class ControlPanel extends GridPane {
         downButton.setDisable(true);
 
         upButton.setOnAction(actionEvent -> {
-            if (game.getCurrentFloor() < 3) {
                 upButtonClickCount++;
                 System.out.println("Up : "+upButtonClickCount);
                 game.goUp();
-                downButton.setDisable(false);
-                if (game.getCurrentFloor() == 3)
-                    upButton.setDisable(true);
-            }
+                upButton.setDisable(true);
+                downButton.setDisable(true);
         });
 
         downButton.setOnAction(actionEvent -> {
-            if (game.getCurrentFloor() > 0) {
                 downButtonClickCount++;
                 System.out.println("Down : "+downButtonClickCount);
                 game.goDown();
-                upButton.setDisable(false);
-                if (game.getCurrentFloor() == 0)
-                    downButton.setDisable(true);
-            }
+                upButton.setDisable(true);
+                downButton.setDisable(true);
         });
 
         getChildren().add(upButton);
@@ -62,4 +56,20 @@ public class ControlPanel extends GridPane {
 
     }
 
+    public void updateButtons() {
+        switch (game.getCurrentFloor()) {
+            case 0 -> {
+                upButton.setDisable(false);
+                downButton.setDisable(true);
+            }
+            case 1,2 -> {
+                upButton.setDisable(false);
+                downButton.setDisable(false);
+            }
+            case 3 -> {
+                upButton.setDisable(true);
+                downButton.setDisable(false);
+            }
+        }
+    }
 }
