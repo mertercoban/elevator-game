@@ -68,7 +68,7 @@ public class ElevatorPanel extends Canvas {
     private void loadImages() {
         try {
             elev = new Image(new FileInputStream("res/elev.png"));
-            personSprite = new Image(new FileInputStream("res/ali/ali_phone.png"));
+            personSprite = new Image(new FileInputStream("res/paul/paul_phone.png"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
