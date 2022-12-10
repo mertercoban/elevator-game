@@ -72,6 +72,7 @@ public class Elevator {
         if (!isFull()) {
             people.push(person);
             System.out.println(person.getPerson().getName() + " is in.");
+            person.entered();
             totalUsers++;
             return true;
         }
@@ -103,6 +104,7 @@ public class Elevator {
                 // let them out.
                 ElevatorPerson personLeft = (ElevatorPerson) people.pop();
                 System.out.println(personLeft.getPerson().getName() + " is out.");
+                personLeft.exited();
                 personLeft.setWaiting(false);
                 System.out.println(personLeft);
             } else {

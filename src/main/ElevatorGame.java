@@ -27,7 +27,7 @@ public class ElevatorGame extends Application {
     @Override
     public void start(Stage stage) {
 
-        elevator = new Elevator(8, 0, 4);
+        elevator = new Elevator(4, 0, 4);
         elevator.enter(NpcManager.people[0]);
 
         gamePanel = new GamePanel(this);
@@ -92,9 +92,11 @@ public class ElevatorGame extends Application {
 
     public void goDown() {
         targetFloor = currentFloor - 1;
+        setElevatorMoving(true);
     }
 
     public void elevatorReachedTarget() {
+        elevatorMoving = false;
         if (controlPanel != null)
             controlPanel.updateButtons();
         if (currentFloor == targetFloor)

@@ -24,6 +24,7 @@ public class ElevatorPerson {
     private Person person;
 
     private boolean waiting = true;
+    private boolean inElevator, exited;
     private PersonName personName;
     private Image idleSprire, walkingSprite, phoneSprite;
 
@@ -92,6 +93,26 @@ public class ElevatorPerson {
                 this.idleSprire = new Image(new FileInputStream("res/maia/maia_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/maia/maia_walk.png"));
             }
+            case JEWEL -> {
+                this.phoneSprite = new Image(new FileInputStream("res/jewel/jewel_phone.png"));
+                this.idleSprire = new Image(new FileInputStream("res/jewel/jewel_idle.png"));
+                this.walkingSprite = new Image(new FileInputStream("res/jewel/jewel_walk.png"));
+            }
+            case JUSTINE -> {
+                this.phoneSprite = new Image(new FileInputStream("res/justine/justine_phone.png"));
+                this.idleSprire = new Image(new FileInputStream("res/justine/justine_idle.png"));
+                this.walkingSprite = new Image(new FileInputStream("res/justine/justine_walk.png"));
+            }
+            case RYAN -> {
+                this.phoneSprite = new Image(new FileInputStream("res/ryan/ryan_phone.png"));
+                this.idleSprire = new Image(new FileInputStream("res/ryan/ryan_idle.png"));
+                this.walkingSprite = new Image(new FileInputStream("res/ryan/ryan_walk.png"));
+            }
+            case CHANCE -> {
+                this.phoneSprite = new Image(new FileInputStream("res/chance/chance_phone.png"));
+                this.idleSprire = new Image(new FileInputStream("res/chance/chance_idle.png"));
+                this.walkingSprite = new Image(new FileInputStream("res/chance/chance_walk.png"));
+            }
         }
     }
 
@@ -123,5 +144,21 @@ public class ElevatorPerson {
 
     public void setWaiting(boolean waiting) {
         this.waiting = waiting;
+    }
+
+    public void exited() {
+        waiting = false;
+        inElevator = false;
+        exited = true;
+    }
+
+    public void entered() {
+        waiting = false;
+        inElevator = true;
+        exited = false;
+    }
+
+    public boolean isExited() {
+        return exited;
     }
 }
