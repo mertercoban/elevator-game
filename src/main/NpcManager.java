@@ -9,7 +9,7 @@ public class NpcManager {
     public static ElevatorPerson[] people = new ElevatorPerson[8];
     static {
         people[0] = new ElevatorPerson(new Person("Paul"),1,3, PAUL);
-        people[1] = new ElevatorPerson(new Person("Maia"),1,3, MAIA);
+        people[1] = new ElevatorPerson(new Person("Maia"),2,3, MAIA);
         people[2] = new ElevatorPerson(new Person("Frankie"),1,2, FRANKIE);
         people[3] = new ElevatorPerson(new Person("Colt"),2,1, COLT);
         people[4] = new ElevatorPerson(new Person("Justine"),2,0, JUSTINE);
