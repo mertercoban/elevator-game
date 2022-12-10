@@ -29,7 +29,6 @@ public class ElevatorGame extends Application {
     public void start(Stage stage) {
 
         elevator = new Elevator(4, 0, 4);
-        elevator.enter(NpcManager.people[0]);
 
         HBox root = new HBox();
         VBox leftPane = new VBox();
