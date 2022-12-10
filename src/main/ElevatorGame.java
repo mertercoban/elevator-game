@@ -103,11 +103,13 @@ public class ElevatorGame extends Application {
             return;
         currentFloor = targetFloor;
         elevator.goToFloor(currentFloor);
+        /*
         for (ElevatorPerson ep : NpcManager.getPeopleOnFloor(currentFloor)) {
             if (ep != null && ep.isWaiting()) {
                 elevator.enter(ep);
             }
         }
+         */
     }
 
     public boolean isElevatorMoving() {
@@ -124,5 +126,9 @@ public class ElevatorGame extends Application {
 
     public void setTargetFloor(int targetFloor) {
         this.targetFloor = targetFloor;
+    }
+
+    public Elevator getElevator() {
+        return elevator;
     }
 }

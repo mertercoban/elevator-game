@@ -18,6 +18,8 @@ public class GamePanel extends Canvas {
     private GraphicsContext gc;
     private ElevatorGame game;
 
+    private float qOffset = 0;
+
     public GamePanel(ElevatorGame game) {
         this.game = game;
         this.yOffset = 640 * 3;
@@ -30,7 +32,6 @@ public class GamePanel extends Canvas {
     public void paint(int currentFloor) {
         calcYOffset();
         gc = this.getGraphicsContext2D();
-        //gc.drawImage(floors[currentFloor], 0, 0, WIDTH * 3.0 / 4, HEIGHT);
         gc.drawImage(building, 0, yOffset, WIDTH * 3.0 / 4, HEIGHT, 0, 0, 960, 640);
         paintPeople(currentFloor);
     }
@@ -40,11 +41,27 @@ public class GamePanel extends Canvas {
             return;
         ElevatorPerson[] ppl = NpcManager.people;
         int w = 0, e = 0;
+        boolean messageShown = false;
         for (int i = 0; i < 8; i++) {
             if (ppl[i].isWaiting() && ppl[i].getInitialPosition() == currentFloor) {
-                gc.drawImage(ppl[i].getIdleSprite(), 19 * 16, 0, 16, 32, 32 * (10 - w), 32 * 4.5, 32, 64);
-                gc.strokeText("Full!", 32 * (10-w), 32 * 4.5);
+                gc.drawImage(ppl[i].getIdleSprite(), 19 * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
+                if (!messageShown && game.getElevator() != null) {
+                    if (game.getElevator().isFull())
+                        gc.strokeText("We need a bigger elevator!!!", 32 * (8-w), 32 * 4.5);
+                    else if (!game.getElevator().isEmpty())
+                        gc.strokeText("Hi, " + game.getElevator().lastEntered().getPerson().getName(), 32 * (10-w) + qOffset, 32 * 4.5);
+                    else if (game.getElevator().isEmpty())
+                        gc.strokeText("Wow! It's empty", 32 * (9-w) + qOffset, 32 * 4.5);
+                    messageShown = true;
+                }
                 w++;
+                if (game.getElevator() != null && !game.getElevator().isFull()) {
+                    qOffset += 0.4;
+                    if (qOffset >= 32 * 3) {
+                        game.getElevator().enter(ppl[i]);
+                        qOffset = 0;
+                    }
+                }
             }
             if (ppl[i].isExited() && ppl[i].getTarget() == currentFloor) {
                 gc.drawImage(ppl[i].getIdleSprite(), 19 * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
