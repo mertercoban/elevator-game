@@ -26,7 +26,7 @@ public class ElevatorPerson {
     private boolean waiting = true;
     private boolean inElevator, exited;
     private PersonName personName;
-    private Image idleSprire, walkingSprite, phoneSprite;
+    private Image idleSprite, walkingSprite, phoneSprite;
     private int travelAmount = 0;
 
     /**
@@ -76,49 +76,49 @@ public class ElevatorPerson {
         switch (personName) {
             case PAUL -> {
                 this.phoneSprite = new Image(new FileInputStream("res/paul/paul_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/paul/paul_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/paul/paul_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/paul/paul_walk.png"));
             }
             case COLT -> {
                 this.phoneSprite = new Image(new FileInputStream("res/colt/colt_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/colt/colt_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/colt/colt_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/colt/colt_walk.png"));
             }
             case FRANKIE -> {
                 this.phoneSprite = new Image(new FileInputStream("res/frankie/frankie_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/frankie/frankie_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/frankie/frankie_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/frankie/frankie_walk.png"));
             }
             case MAIA -> {
                 this.phoneSprite = new Image(new FileInputStream("res/maia/maia_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/maia/maia_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/maia/maia_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/maia/maia_walk.png"));
             }
             case JEWEL -> {
                 this.phoneSprite = new Image(new FileInputStream("res/jewel/jewel_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/jewel/jewel_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/jewel/jewel_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/jewel/jewel_walk.png"));
             }
             case JUSTINE -> {
                 this.phoneSprite = new Image(new FileInputStream("res/justine/justine_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/justine/justine_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/justine/justine_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/justine/justine_walk.png"));
             }
             case RYAN -> {
                 this.phoneSprite = new Image(new FileInputStream("res/ryan/ryan_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/ryan/ryan_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/ryan/ryan_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/ryan/ryan_walk.png"));
             }
             case CHANCE -> {
                 this.phoneSprite = new Image(new FileInputStream("res/chance/chance_phone.png"));
-                this.idleSprire = new Image(new FileInputStream("res/chance/chance_idle.png"));
+                this.idleSprite = new Image(new FileInputStream("res/chance/chance_idle.png"));
                 this.walkingSprite = new Image(new FileInputStream("res/chance/chance_walk.png"));
             }
         }
     }
 
-    public Image getIdleSprire() {
-        return idleSprire;
+    public Image getIdleSprite() {
+        return idleSprite;
     }
 
     public Image getWalkingSprite() {
@@ -158,6 +158,7 @@ public class ElevatorPerson {
         waiting = false;
         inElevator = true;
         exited = false;
+        enterTime = Elevator.getTravelMeter();
     }
 
     public boolean isExited() {
