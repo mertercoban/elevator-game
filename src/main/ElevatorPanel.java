@@ -17,7 +17,6 @@ public class ElevatorPanel extends Canvas {
     private ElevatorGame game;
     private Image elev;
     private GraphicsContext gc;
-    private Image personSprite;
     private int animIndex, animTick;
     private boolean animFlag = true;
 
@@ -37,9 +36,9 @@ public class ElevatorPanel extends Canvas {
         gc.strokeText(elevator.toString(), 10, 10, 160);
         gc.strokeText("Number of people who\nused the elevator: " + elevator.getTotalUsers(), 170, 10, 160);
         if (elevator.lastEntered() != null){
-            gc.drawImage(personSprite, animIndex * 16, 0, 16, 32, 4.25 * TILE_SIZE, 4.5 * TILE_SIZE, 1.5 * TILE_SIZE, 3 * TILE_SIZE);
+            gc.drawImage(elevator.lastEntered().getPhoneSprite(), animIndex * 16, 0, 16, 32, 4.25 * TILE_SIZE, 4.5 * TILE_SIZE, 1.5 * TILE_SIZE, 3 * TILE_SIZE);
             gc.setStroke(Color.WHITE);
-            gc.strokeText("I will go to floor " + elevator.lastEntered().getTarget(),32*3.5,32*3,128);
+            gc.strokeText("I am " + elevator.lastEntered().getPerson().getName() + "\nI will go to floor " + elevator.lastEntered().getTarget(),32*3.5,32*2.5,128);
             gc.setStroke(Color.BLACK);
         }
     }
@@ -68,7 +67,6 @@ public class ElevatorPanel extends Canvas {
     private void loadImages() {
         try {
             elev = new Image(new FileInputStream("res/elev.png"));
-            personSprite = new Image(new FileInputStream("res/paul/paul_phone.png"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

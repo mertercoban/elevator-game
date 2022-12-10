@@ -68,6 +68,16 @@ public class Elevator {
         return false;
     }
 
+    public boolean enter(ElevatorPerson person) throws IllegalArgumentException {
+        if (!isFull()) {
+            people.push(person);
+            System.out.println(person.getPerson().getName() + " is in.");
+            totalUsers++;
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Sends the elevator to the target floor, updates the travel meter,
      * lets the people out.
@@ -93,6 +103,7 @@ public class Elevator {
                 // let them out.
                 ElevatorPerson personLeft = (ElevatorPerson) people.pop();
                 System.out.println(personLeft.getPerson().getName() + " is out.");
+                personLeft.setWaiting(false);
                 System.out.println(personLeft);
             } else {
                 // if not, they can't leave no more

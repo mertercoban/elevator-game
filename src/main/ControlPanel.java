@@ -29,7 +29,7 @@ public class ControlPanel extends GridPane {
 
         upButton.setOnAction(actionEvent -> {
             upButtonClickCount++;
-            System.out.println("Up : " + upButtonClickCount);
+            //System.out.println("Up : " + upButtonClickCount);
             game.goUp();
             upButton.setDisable(true);
             downButton.setDisable(true);
@@ -37,7 +37,7 @@ public class ControlPanel extends GridPane {
 
         downButton.setOnAction(actionEvent -> {
             downButtonClickCount++;
-            System.out.println("Down : " + downButtonClickCount);
+            //System.out.println("Down : " + downButtonClickCount);
             game.goDown();
             upButton.setDisable(true);
             downButton.setDisable(true);
