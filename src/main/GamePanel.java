@@ -17,6 +17,7 @@ public class GamePanel extends Canvas {
     private int yOffset;
     private GraphicsContext gc;
     private ElevatorGame game;
+    private int animIndx = 0, animTick;
 
     private float qOffset = 0;
 
@@ -30,10 +31,21 @@ public class GamePanel extends Canvas {
     }
 
     public void paint(int currentFloor) {
+        animate();
         calcYOffset();
         gc = this.getGraphicsContext2D();
         gc.drawImage(building, 0, yOffset, WIDTH * 3.0 / 4, HEIGHT, 0, 0, 960, 640);
         paintPeople(currentFloor);
+    }
+
+    private void animate() {
+        animTick++;
+        if (animTick >= 25) {
+            animIndx++;
+            animTick = 0;
+            if (animIndx >= 6)
+                animIndx = 0;
+        }
     }
 
     private void paintPeople(int currentFloor) {
@@ -44,14 +56,17 @@ public class GamePanel extends Canvas {
         boolean messageShown = false;
         for (int i = 0; i < 8; i++) {
             if (ppl[i].isWaiting() && ppl[i].getInitialPosition() == currentFloor) {
-                gc.drawImage(ppl[i].getIdleSprite(), 19 * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
+                if (game.getElevator() != null && !game.getElevator().isFull())
+                    gc.drawImage(ppl[i].getWalkingSprite(), animIndx * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
+                else
+                    gc.drawImage(ppl[i].getIdleSprite(), (18+animIndx) * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
                 if (!messageShown && game.getElevator() != null) {
                     if (game.getElevator().isFull())
-                        gc.strokeText("We need a bigger elevator!!!", 32 * (8-w), 32 * 4.5);
+                        gc.strokeText("We need a bigger elevator!!!", 32 * (8 - w), 32 * 4.5);
                     else if (!game.getElevator().isEmpty())
-                        gc.strokeText("Hi, " + game.getElevator().lastEntered().getPerson().getName(), 32 * (10-w) + qOffset, 32 * 4.5);
+                        gc.strokeText("Hi, " + game.getElevator().lastEntered().getPerson().getName(), 32 * (10 - w) + qOffset, 32 * 4.5);
                     else if (game.getElevator().isEmpty())
-                        gc.strokeText("Wow! It's empty", 32 * (9-w) + qOffset, 32 * 4.5);
+                        gc.strokeText("Wow! It's empty", 32 * (9 - w) + qOffset, 32 * 4.5);
                     messageShown = true;
                 }
                 w++;
