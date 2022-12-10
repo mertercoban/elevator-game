@@ -27,6 +27,7 @@ public class ElevatorPerson {
     private boolean inElevator, exited;
     private PersonName personName;
     private Image idleSprire, walkingSprite, phoneSprite;
+    private int travelAmount = 0;
 
     /**
      * Generates an ElevatorPerson object for the given person
@@ -137,9 +138,9 @@ public class ElevatorPerson {
     public String toString() {
         // shortest distance = |target - initialPosition|
         // distance traveled = Elevator.getTravelMeter() - enterTime
-        return Math.abs(target - initialPosition) >= (Elevator.getTravelMeter() - enterTime)
-                ? "I am " + person.getName() + ". I traveled " + (Elevator.getTravelMeter() - enterTime) + " floors. I am happy"
-                : "I am " + person.getName() + ". I traveled " + (Elevator.getTravelMeter() - enterTime) + " floors. I am unhappy";
+        return Math.abs(target - initialPosition) >= travelAmount
+                ? "I am " + person.getName() + ". I traveled " + travelAmount + " floors. I am happy"
+                : "I am " + person.getName() + ". I traveled " + travelAmount + " floors. I am unhappy";
     }
 
     public void setWaiting(boolean waiting) {
@@ -150,6 +151,7 @@ public class ElevatorPerson {
         waiting = false;
         inElevator = false;
         exited = true;
+        travelAmount = Elevator.getTravelMeter() - enterTime;
     }
 
     public void entered() {

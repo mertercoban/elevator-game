@@ -14,9 +14,9 @@ public class ElevatorGame extends Application {
     public static final int WIDTH = TILE_SIZE * 40;
     public static final int HEIGHT = TILE_SIZE * 20;
 
-    private ElevatorPanel elevatorPanel;
-    private GamePanel gamePanel;
-    private ControlPanel controlPanel;
+    private ElevatorPanel elevatorPanel = new ElevatorPanel(this);
+    private GamePanel gamePanel = new GamePanel(this);
+    private ControlPanel controlPanel = new ControlPanel(this);
     private Thread loopThread;
 
     private Elevator elevator;
@@ -30,9 +30,6 @@ public class ElevatorGame extends Application {
         elevator = new Elevator(4, 0, 4);
         elevator.enter(NpcManager.people[0]);
 
-        gamePanel = new GamePanel(this);
-        elevatorPanel = new ElevatorPanel(this);
-        controlPanel = new ControlPanel(this);
         HBox root = new HBox();
         VBox leftPane = new VBox();
 

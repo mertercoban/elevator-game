@@ -29,8 +29,7 @@ public class ElevatorPanel extends Canvas {
 
     public void paint(Elevator elevator) {
         updateAnim();
-        if (gc == null)
-            gc = this.getGraphicsContext2D();
+        gc = this.getGraphicsContext2D();
         gc.clearRect(0, 0, 320, 320);
         gc.drawImage(elev, 0, 0, 320, 320);
         gc.strokeText(elevator.toString(), 10, 10, 160);

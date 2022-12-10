@@ -30,8 +30,7 @@ public class GamePanel extends Canvas {
 
     public void paint(int currentFloor) {
         calcYOffset();
-        if (gc == null)
-            gc = this.getGraphicsContext2D();
+        gc = this.getGraphicsContext2D();
         //gc.drawImage(floors[currentFloor], 0, 0, WIDTH * 3.0 / 4, HEIGHT);
         gc.drawImage(merged, 0, yOffset, WIDTH * 3.0 / 4, HEIGHT, 0, 0, 960, 640);
         paintPeople(currentFloor);
@@ -45,10 +44,12 @@ public class GamePanel extends Canvas {
         for (int i = 0; i < 8; i++) {
             if (ppl[i].isWaiting() && ppl[i].getInitialPosition() == currentFloor) {
                 gc.drawImage(ppl[i].getIdleSprire(), 19 * 16, 0, 16, 32, 32 * (10 - w), 32 * 4.5, 32, 64);
+                gc.strokeText("Full!", 32 * (10-w), 32 * 4.5);
                 w++;
             }
             if (ppl[i].isExited() && ppl[i].getTarget() == currentFloor) {
-                gc.drawImage(ppl[i].getIdleSprire(), 19 * 16, 0, 16, 32, 32 * (20 + e), 32 * 4.5, 32, 64);
+                gc.drawImage(ppl[i].getIdleSprire(), 19 * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
+                gc.strokeText(ppl[i].toString(), 32 * 21, 32 * (5.5 + e));
                 e++;
             }
         }
