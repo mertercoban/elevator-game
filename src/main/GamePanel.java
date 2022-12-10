@@ -7,7 +7,6 @@ import q4.ElevatorPerson;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import static main.ElevatorGame.HEIGHT;
 import static main.ElevatorGame.WIDTH;

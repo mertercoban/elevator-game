@@ -7,7 +7,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import q4.Elevator;
-import q4.ElevatorPerson;
 
 public class ElevatorGame extends Application {
 
@@ -73,9 +72,6 @@ public class ElevatorGame extends Application {
         return currentFloor;
     }
 
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
-    }
 
     private void repaint() {
         Platform.runLater(() -> {
@@ -102,13 +98,6 @@ public class ElevatorGame extends Application {
             return;
         currentFloor = targetFloor;
         elevator.goToFloor(currentFloor);
-        /*
-        for (ElevatorPerson ep : NpcManager.getPeopleOnFloor(currentFloor)) {
-            if (ep != null && ep.isWaiting()) {
-                elevator.enter(ep);
-            }
-        }
-         */
     }
 
     public boolean isElevatorMoving() {
@@ -121,10 +110,6 @@ public class ElevatorGame extends Application {
 
     public int getTargetFloor() {
         return targetFloor;
-    }
-
-    public void setTargetFloor(int targetFloor) {
-        this.targetFloor = targetFloor;
     }
 
     public Elevator getElevator() {

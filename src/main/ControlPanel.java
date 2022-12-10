@@ -11,8 +11,6 @@ public class ControlPanel extends GridPane {
 
     private Button upButton;
     private Button downButton;
-    private int upButtonClickCount = 0;
-    private int downButtonClickCount = 0;
 
     public ControlPanel(ElevatorGame game) {
         this.game = game;
@@ -28,16 +26,12 @@ public class ControlPanel extends GridPane {
         downButton.setDisable(true);
 
         upButton.setOnAction(actionEvent -> {
-            upButtonClickCount++;
-            //System.out.println("Up : " + upButtonClickCount);
             game.goUp();
             upButton.setDisable(true);
             downButton.setDisable(true);
         });
 
         downButton.setOnAction(actionEvent -> {
-            downButtonClickCount++;
-            //System.out.println("Down : " + downButtonClickCount);
             game.goDown();
             upButton.setDisable(true);
             downButton.setDisable(true);
