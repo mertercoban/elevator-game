@@ -7,6 +7,7 @@ import q4.ElevatorPerson;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import static main.ElevatorGame.HEIGHT;
 import static main.ElevatorGame.WIDTH;
@@ -90,7 +91,7 @@ public class GamePanel extends Canvas {
 
     private void loadImages() {
         try {
-            building = new Image(new FileInputStream("res/floors-merged.png"));
+            building = new Image(new FileInputStream("res/env/floors-merged.png"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
