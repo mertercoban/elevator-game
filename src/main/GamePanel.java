@@ -13,8 +13,7 @@ import static main.ElevatorGame.WIDTH;
 
 public class GamePanel extends Canvas {
 
-    private Image[] floors;
-    private Image merged;
+    private Image building;
     private int yOffset;
     private GraphicsContext gc;
     private ElevatorGame game;
@@ -32,7 +31,7 @@ public class GamePanel extends Canvas {
         calcYOffset();
         gc = this.getGraphicsContext2D();
         //gc.drawImage(floors[currentFloor], 0, 0, WIDTH * 3.0 / 4, HEIGHT);
-        gc.drawImage(merged, 0, yOffset, WIDTH * 3.0 / 4, HEIGHT, 0, 0, 960, 640);
+        gc.drawImage(building, 0, yOffset, WIDTH * 3.0 / 4, HEIGHT, 0, 0, 960, 640);
         paintPeople(currentFloor);
     }
 
@@ -73,13 +72,8 @@ public class GamePanel extends Canvas {
     }
 
     private void loadImages() {
-        floors = new Image[4];
         try {
-            floors[0] = new Image(new FileInputStream("res/floor0.png"));
-            floors[1] = new Image(new FileInputStream("res/floor1.png"));
-            floors[2] = new Image(new FileInputStream("res/floor2.png"));
-            floors[3] = new Image(new FileInputStream("res/floor3.png"));
-            merged = new Image(new FileInputStream("res/floors-merged.png"));
+            building = new Image(new FileInputStream("res/floors-merged.png"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
