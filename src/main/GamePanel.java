@@ -52,21 +52,21 @@ public class GamePanel extends Canvas {
         if (game.isElevatorMoving())
             return;
         ElevatorPerson[] ppl = NpcManager.people;
-        int w = 0, e = 0;
+        int w = -1, e = 0;
         boolean messageShown = false;
         for (int i = 0; i < 8; i++) {
             if (ppl[i].isWaiting() && ppl[i].getInitialPosition() == currentFloor) {
                 if (game.getElevator() != null && !game.getElevator().isFull())
-                    gc.drawImage(ppl[i].getWalkingSprite(), animIndx * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
+                    gc.drawImage(ppl[i].getWalkingSprite(), animIndx * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
                 else
-                    gc.drawImage(ppl[i].getIdleSprite(), (18+animIndx) * 16, 0, 16, 32, 32 * (10 - w) + qOffset, 32 * 4.5, 32, 64);
+                    gc.drawImage(ppl[i].getIdleSprite(), (18+animIndx) * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
                 if (!messageShown && game.getElevator() != null) {
                     if (game.getElevator().isFull())
-                        gc.strokeText("We need a bigger elevator!!!", 32 * (8 - w), 32 * 4.5);
+                        gc.strokeText("We need a bigger elevator!!!", 32 * (9 + w), 32 * 4.5);
                     else if (!game.getElevator().isEmpty())
-                        gc.strokeText("Hi, " + game.getElevator().lastEntered().getPerson().getName(), 32 * (10 - w) + qOffset, 32 * 4.5);
+                        gc.strokeText("Hi, " + game.getElevator().lastEntered().getPerson().getName(), 32 * (11 + w) + qOffset, 32 * 4.5);
                     else if (game.getElevator().isEmpty())
-                        gc.strokeText("Wow! It's empty", 32 * (9 - w) + qOffset, 32 * 4.5);
+                        gc.strokeText("Wow! It's empty", 32 * (10 + w) + qOffset, 32 * 4.5);
                     messageShown = true;
                 }
                 w++;
