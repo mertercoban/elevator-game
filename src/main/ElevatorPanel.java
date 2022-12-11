@@ -1,3 +1,7 @@
+/**
+ * @author 20050111034 Merter Çoban
+ * @author 20050111008 Selçuk Gençay
+ */
 package main;
 
 import javafx.scene.canvas.Canvas;

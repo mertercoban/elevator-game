@@ -1,6 +1,6 @@
-/*
-@author Abdullah Bülbül
-Ceng201 - OOP - Quiz 3
+/**
+ * @author Abdullah Bülbül
+ * Ceng201 - OOP - Quiz 3
  */
 package q4;
 

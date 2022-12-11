@@ -1,6 +1,5 @@
 package q4;
 
-
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
