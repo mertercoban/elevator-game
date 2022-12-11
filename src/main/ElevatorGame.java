@@ -14,10 +14,9 @@ public class ElevatorGame extends Application {
     public static final int WIDTH = TILE_SIZE * 40;
     public static final int HEIGHT = TILE_SIZE * 20;
 
-    private ElevatorPanel elevatorPanel = new ElevatorPanel(this);
-    private GamePanel gamePanel = new GamePanel(this);
-    private ControlPanel controlPanel = new ControlPanel(this);
-    private Thread loopThread;
+    private final ElevatorPanel elevatorPanel = new ElevatorPanel();
+    private final GamePanel gamePanel = new GamePanel(this);
+    private final ControlPanel controlPanel = new ControlPanel(this);
 
     private Elevator elevator;
     private int currentFloor;
@@ -51,10 +50,11 @@ public class ElevatorGame extends Application {
     }
 
     private void startLoop() {
-        loopThread = new Thread(() -> {
+        Thread loopThread = new Thread(() -> {
             while (true) {
                 repaint();
                 try {
+                    //noinspection BusyWait
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -92,6 +92,7 @@ public class ElevatorGame extends Application {
 
     public void elevatorReachedTarget() {
         elevatorMoving = false;
+        //noinspection ConstantConditions
         if (controlPanel != null)
             controlPanel.updateButtons();
         if (currentFloor == targetFloor)

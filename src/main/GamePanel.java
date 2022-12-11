@@ -16,8 +16,8 @@ public class GamePanel extends Canvas {
     private Image building;
     private int yOffset;
     private GraphicsContext gc;
-    private ElevatorGame game;
-    private int animIndx = 0, animTick;
+    private final ElevatorGame game;
+    private int animIndex = 0, animTick;
 
     private float qOffset = 0;
 
@@ -41,10 +41,10 @@ public class GamePanel extends Canvas {
     private void animate() {
         animTick++;
         if (animTick >= 25) {
-            animIndx++;
+            animIndex++;
             animTick = 0;
-            if (animIndx >= 6)
-                animIndx = 0;
+            if (animIndex >= 6)
+                animIndex = 0;
         }
     }
 
@@ -57,9 +57,9 @@ public class GamePanel extends Canvas {
         for (int i = 0; i < 8; i++) {
             if (ppl[i].isWaiting() && ppl[i].getInitialPosition() == currentFloor) {
                 if (game.getElevator() != null && !game.getElevator().isFull())
-                    gc.drawImage(ppl[i].getWalkingSprite(), animIndx * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
+                    gc.drawImage(ppl[i].getWalkingSprite(), animIndex * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
                 else
-                    gc.drawImage(ppl[i].getIdleSprite(), (18+animIndx) * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
+                    gc.drawImage(ppl[i].getIdleSprite(), (18+ animIndex) * 16, 0, 16, 32, 32 * (10 + w) + qOffset, 32 * 4.5, 32, 64);
                 if (!messageShown && game.getElevator() != null) {
                     if (game.getElevator().isFull())
                         gc.strokeText("We need a bigger elevator!!!", 32 * (9 + w), 32 * 4.5);
@@ -79,7 +79,7 @@ public class GamePanel extends Canvas {
                 }
             }
             if (ppl[i].isExited() && ppl[i].getTarget() == currentFloor) {
-                gc.drawImage(ppl[i].getIdleSprite(), (18 + animIndx) * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
+                gc.drawImage(ppl[i].getIdleSprite(), (18 + animIndex) * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
                 gc.strokeText(ppl[i].toString(), 32 * 21, 32 * (5.5 + e));
                 e++;
             }

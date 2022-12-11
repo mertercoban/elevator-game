@@ -17,14 +17,4 @@ public class NpcManager {
         people[6] = new ElevatorPerson(new Person("Ryan"),3,1, RYAN);
         people[7] = new ElevatorPerson(new Person("Chance"),3,0, CHANCE);
     }
-
-    public static ElevatorPerson[] getPeopleOnFloor(int floor) {
-        ElevatorPerson[] list = new ElevatorPerson[8];
-        int iter = 0;
-        for (int i = 0; i < 8; i++) {
-            if (people[i].getInitialPosition() == floor)
-                list[iter++] = people[i];
-        }
-        return list;
-    }
 }

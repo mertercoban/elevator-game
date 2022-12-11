@@ -13,22 +13,19 @@ import static main.ElevatorGame.TILE_SIZE;
 
 public class ElevatorPanel extends Canvas {
 
-    private ElevatorGame game;
     private Image elev;
-    private GraphicsContext gc;
     private int animIndex, animTick;
     private boolean animFlag = true;
 
-    public ElevatorPanel(ElevatorGame elevatorGame) {
-        this.game = elevatorGame;
-        setHeight(320);
-        setWidth(320);
+    public ElevatorPanel() {
+        setHeight(10 * TILE_SIZE);
+        setWidth(10 * TILE_SIZE);
         loadImages();
     }
 
     public void paint(Elevator elevator) {
         updateAnim();
-        gc = this.getGraphicsContext2D();
+        GraphicsContext gc = this.getGraphicsContext2D();
         gc.clearRect(0, 0, 320, 320);
         gc.drawImage(elev, 0, 0, 320, 320);
         gc.strokeText(elevator.toString(), 10, 10, 160);
