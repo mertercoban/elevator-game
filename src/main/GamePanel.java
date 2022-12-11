@@ -79,7 +79,7 @@ public class GamePanel extends Canvas {
                 }
             }
             if (ppl[i].isExited() && ppl[i].getTarget() == currentFloor) {
-                gc.drawImage(ppl[i].getIdleSprite(), 19 * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
+                gc.drawImage(ppl[i].getIdleSprite(), (18 + animIndx) * 16, 0, 16, 32, 32 * 20, 32 * (4.5 + e), 32, 64);
                 gc.strokeText(ppl[i].toString(), 32 * 21, 32 * (5.5 + e));
                 e++;
             }
